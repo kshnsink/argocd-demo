@@ -1,20 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: guestbook-ui
+  name: argocd-app
 spec:
-  replicas: 1
-  revisionHistoryLimit: 3
   selector:
     matchLabels:
-      app: guestbook-ui
+      app: argocd-app
+  replicas: 2
   template:
     metadata:
       labels:
-        app: guestbook-ui
+        app: argocd-app
     spec:
       containers:
-      - image: gcr.io/heptio-images/ks-guestbook-demo:0.2
-        name: guestbook-ui
+      - name: argocd-app
+        image: kishansharmacs/myhello:latest
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "100m"
         ports:
-        - containerPort: 80
+        - containerPort: 8080
