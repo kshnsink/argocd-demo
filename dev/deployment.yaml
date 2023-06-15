@@ -5,15 +5,15 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: argocd-app
+      app: argocd-myapp
   replicas: 3
   template:
     metadata:
       labels:
-        app: argocd-app
+        app: argocd-myapp
     spec:
       containers:
-      - name: argocd-app
+      - name: argocd-myapp
         image: kishansharmacs/myhello:latest
         resources:
           limits:
