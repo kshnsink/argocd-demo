@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: argocd-myapp
+  name: argocd-myapp-1
 spec:
   selector:
     matchLabels:
-      app: argocd-myapp
-  replicas: 3
+      app: argocd-myapp-1
+  replicas: 2
   template:
     metadata:
       labels:
-        app: argocd-myapp
+        app: argocd-myapp-1
     spec:
       containers:
-      - name: argocd-myapp
+      - name: argocd-myapp-1
         image: kishansharmacs/myhello:latest
         resources:
           limits:
