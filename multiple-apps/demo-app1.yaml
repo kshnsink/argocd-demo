@@ -15,7 +15,7 @@ spec:
   source:
     repoURL: 'https://github.com/kshnsink/argocd-demo.git'
     targetRevision: HEAD
-    path: multiple-apps/demo-app1
+    path: multiple-apps/manifests
    
   # Destination cluster and namespace to deploy the application
   destination:
