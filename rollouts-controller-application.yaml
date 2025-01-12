@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: rollouts-controller
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/kshnsink/argocd-demo.git'
+    targetRevision: HEAD
+    path: argo-rollouts-controller
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: argo-rollouts
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
